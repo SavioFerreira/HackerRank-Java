@@ -13,6 +13,10 @@ public class Solution {
 				return "00" + comprimento;
 			}
 			return "0" + comprimento;
+		} else if (comprimento.length() > 3) {
+			Scanner scan = new Scanner(System.in);
+			nmr = scan.nextInt();
+			comprimento = nmr.toString();
 		}
 		return comprimento;
 	}
@@ -24,7 +28,7 @@ public class Solution {
 		String nmr = separador[1];
 		
 		int tamanhoDaFrase = str.length() -1; 
-		int tamanhoMax = 15;
+		int tamanhoMax = 18;
 		
 		if (tamanhoDaFrase < tamanhoMax) {
 			int redutor = (tamanhoMax -= tamanhoDaFrase);
@@ -32,7 +36,7 @@ public class Solution {
 				palavra += " ";
 			}
 		} else if (tamanhoDaFrase > tamanhoMax) {
-			String sub = palavra.substring(0, 12);
+			String sub = palavra.substring(0, 15);
 			palavra = sub;
 			
 //			Caso o substituto seja menor que 15 e diminua
@@ -47,7 +51,7 @@ public class Solution {
 //			}
 
 		} else return "erro\n";
-		return palavra.concat(nmr).concat("\n");
+		return palavra.concat(nmr);
 	}
 
 	public static void main(String[] args) {
@@ -70,7 +74,7 @@ public class Solution {
 			}
 		}
 
-		System.out.println(resultado1 += resultado2 += resultado3);
+		System.out.printf("%s%s%s", resultado1, resultado2, resultado3);
 		System.out.println("================================");
 		sc.close();
 	}
