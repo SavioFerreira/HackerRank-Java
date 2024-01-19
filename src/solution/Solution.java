@@ -19,23 +19,29 @@ public class Solution {
 
 	public static String verCompri(String str) {
 
-		int tamanhoDaFrase = str.length() -1;
 		String separador[] = str.split(" ");
 		String palavra = separador[0];
 		String nmr = separador[1];
-
-		if (tamanhoDaFrase < 15) {
-			int tamanhoMax = 16;
-			for (int i = 0; i < (tamanhoMax -= str.length()); i++) {
+		
+		int tamanhoDaFrase = str.length() -1; 
+		int tamanhoMax = 15;
+		
+		if (tamanhoDaFrase < tamanhoMax) {
+			int redutor = (tamanhoMax -= tamanhoDaFrase);
+			for (int i = 0; i < redutor; i++) {
 				palavra += " ";
 			}
-		} else if (tamanhoDaFrase > 15) {
+		} else if (tamanhoDaFrase > tamanhoMax) {
 			String sub = palavra.substring(0, 12);
 			palavra = sub;
 			
-//			if (tamanhoDaFrase < 15) {
-//				int tamanhoMax = 16;
-//				for (int i = 0; i < (tamanhoMax -= str.length()); i++) {
+//			Caso o substituto seja menor que 15 e diminua
+//			o tamanho da palavra, nesse caso seria preciso 
+//			incluir os espaços em branco novamente, mas com isso, o código fica duplicado.	
+//			
+//			if (tamanhoDaFrase < tamanhoMax) {
+//			int redutor = (tamanhoMax -= tamanhoDaFrase);
+//				for (int i = 0; i < redutor; i++) {
 //					palavra += " ";
 //				}
 //			}
